@@ -1,0 +1,110 @@
+/* VARIABLE */
+:root {
+  --oscuro: #212121;
+  --primario: #ffc107;
+  --secundario: #0097a7;
+}
+/* SNIPPET PARA QUE EL PADDING NO AFECTE LOS ELEMENTOS */
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+    font-size: 62.5%;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body{
+    font-family: 'Krub', sans-serif;
+    min-height: 100%;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    font-size: 1.6rem;
+  }
+  h1, h2, h3, h4, h5, h6{
+    margin: 0;
+  }
+  .site-header{
+    background-color: #ffffff;
+  }
+  .site-header nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+
+    display: flex;
+     /* SE USA ALIGN ITEMS POR QUE SE ESTA USANDO FLEX DIRECTION COLUMN */
+     /* SE USA JUSTIFY CONTENT CENTER PARA CENTRAR ELEMENTOS EN ROW */
+    flex-direction: column;
+    align-items: center;
+  }
+  @media (min-width: 768px){
+    .site-header nav{
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+  .site-header nav a{
+    color: var(--oscuro);
+    font-size: 2.2rem;
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .site-header nav a:last-of-type{
+    margin-bottom: 0;
+  }
+  @media (min-width: 768px){
+    .site-header nav a{
+      margin-bottom: 0;
+    }
+  }
+
+  .hero{
+    height: 45rem;
+    background-image: url(../img/hero.jpg);
+    position: relative;
+    /* CUANDO SE CAMBIA DE FLEX DIRECTION ROW A COLUMN LAS PRPIEDADES JUSTIFY Y ALING TAMBIEN CAMBIAN */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .hero::after{
+    content: '';
+    background-color: rgba(0, 0, 0, .7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0em;
+  }
+  .contenedor-hero{
+    color: #ffffff;
+    position: relative;
+    z-index: 1;
+
+    /* PARA CENTRAR LOS ELEMENTOS DE MANERA HORIZONTAL SE PUEDE USAR TANTO TEXT ALING COMO FLEXBOX */
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* AMBOS SON VALIDOS */
+  }
+  .contenedor-hero i{
+    font-size: 5rem;
+    color: var(--primario);
+    margin-right: 1rem;
+  }
+  .boton{
+    background-color: var(--secundario);
+    padding: 1rem 5rem;
+    /* SE CAMBIA LA PROPIEDAD DEL A DE INLINE A INLINEBLOCK PARA QUE PUEDA RECIBIR MARGIN Y PADDING YA QUE SIENDO INLINE NO PUEDE */
+    display: inline-block;
+    margin-top: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.2rem;
+    border-radius: .5rem;
+  }
