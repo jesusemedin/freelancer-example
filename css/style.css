@@ -3,6 +3,9 @@
   --oscuro: #212121;
   --primario: #ffc107;
   --secundario: #0097a7;
+  --gris: #757575;
+
+  --anchopantalla: 1200px;
 }
 /* SNIPPET PARA QUE EL PADDING NO AFECTE LOS ELEMENTOS */
 html {
@@ -23,11 +26,23 @@ html {
   h1, h2, h3, h4, h5, h6{
     margin: 0;
   }
+  h2, h3{
+    text-align: center;
+  }
+  h3{
+    color: var(--secundario);
+    font-weight: 400;
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 2;
+  }
   .site-header{
     background-color: #ffffff;
   }
   .site-header nav{
-    max-width: 1200px;
+    max-width: var(--anchopantalla);
     margin: 0 auto;
     padding: 2rem 0;
 
@@ -107,4 +122,106 @@ html {
     font-weight: 700;
     font-size: 2.2rem;
     border-radius: .5rem;
+    transition: .5s ease-in-out;
+    border: none;
+  }
+.boton:hover{
+  cursor: pointer;
+  background-color: #00636e;
+}
+  .contenedor{
+    max-width: var(--anchopantalla);
+    /* SE USA MARGIN 0 AUTO PARA CENTRARLO SE PUEDE CENTRAR CON FLEXBOX PERO REQUERIRA MAS LINEAS */
+    margin: 3rem auto;
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: 0px 10px 21px 1px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 10px 21px 1px rgba(0,0,0,0.75);
+box-shadow: 0px 10px 21px 1px rgba(0,0,0,0.75);
+  }
+  .contenedor-servicios{
+    margin-top: 3rem;
+  }
+  @media (min-width: 768px){
+    .contenedor-servicios{
+      display: flex;
+      justify-content: space-between;
+    }
+    .servicio{
+      /* ESTA PROPIEDA ES UN ATAJO DE FLEX GROW, FLEX SHIRK, FLEX BASIS */
+      /* EL CALC TOMA DIVIDE TODO EL ESPACIO ENTRE LOS ELEMENTOS Y LE RESTA UN REM, EL REM ES PARA APLICAR ESPACIAMIENTO ENTRE CADA ELEMENTO */
+      /* AL USAR DISPLAY FLEX DEJA UN ESPACIO YA QUE EL FLEX INICIA EN FLEXSTAR  SE USA SPACE BETWEEN EN EL PADREPARA CORREGIR*/
+      flex: 0 0 calc(33.3% - 1rem);
+    }
+  }
+  .servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .iconos{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: var(--primario);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .iconos{
+    font-size: 3rem;
+  }
+
+  form {
+    background-color: var(--gris);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem auto;
+  }
+  section form legend {
+    margin: 3rem auto;
+    font-size: 2rem;
+    color: var(--primario);
+  }
+  @media (min-width: 768px){
+    form{
+      max-width: 800px;
+    }
+    .contenedor-campos{
+      display: flex;
+      justify-content: space-between;
+      /* FLEX WAP APLICA PARA EL PADRE */
+      flex-wrap: wrap;
+    }
+    .campo{
+      /* FLEX SOLO APLICA PARA LOS HIJOS */
+      flex: 0 0 calc(50% - 1rem);
+    }
+  }
+  .campo{
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  .campo label {
+    flex: 0 0 90px;
+    padding-top: .5rem;
+    color: #ffffff;
+  }
+  .campo input{
+    flex: 1;
+    height: 4rem;
+  }
+  .campo textarea{
+    flex: 1;
+    height: 6rem;
+  }
+  .w100{
+    flex: 0 0 100%;
+  }
+  .enviar{
+    display: flex;
+    justify-content: center;
   }
